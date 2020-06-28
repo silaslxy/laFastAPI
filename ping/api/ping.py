@@ -5,7 +5,7 @@ from ping.serializer import serializers
 router = APIRouter()
 
 
-@router.get("", name="ping-pong", description="ping-pong:detail", response_model=serializers.PingSerializer)
+@router.get("", summary="ping-pong", description="ping-pong:detail", response_model=serializers.PingSerializer)
 async def ping():
     """
     ping-pong:detail

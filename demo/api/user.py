@@ -7,10 +7,10 @@ user_router = APIRouter()
 
 
 # status_code定义返回的状态码 若要自定义status_code 可以参考fastapi.status
-# name: 关于url的简单介绍
+# summary: 关于url的简单介绍
 # description: 关于url的详细描述， 有限使用description， 其次文档字符串
 # response_model: 限制返回的数据格式
-@user_router.post("", name="创建用户", description="创建用户详细介绍", response_model=UserSerializer)
+@user_router.post("", summary="创建用户", description="创建用户详细介绍", response_model=UserSerializer)
 async def create_user(user_serializer: UserSerializer):
     """
     创建用户详细介绍
@@ -20,7 +20,7 @@ async def create_user(user_serializer: UserSerializer):
     return user_serializer
 
 
-@user_router.get("/{category}", name="根据类型获取介绍",
+@user_router.get("/{category}", summary="根据类型获取介绍",
                  description="根据类型获取介绍",
                  response_model=CategoryDetailSerializer)
 async def get_category_detail(category: UserCategoryEnum = Path(..., description="用户枚举类型")):
