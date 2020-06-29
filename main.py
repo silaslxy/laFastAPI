@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from demo.api import demo_router
 from ping.api import ping_router
+from fastapi.logger import logger
 
 
 # 异常错误
@@ -14,6 +15,7 @@ def create_app():
     # 注册模块
     app.include_router(ping_router, prefix="")
     app.include_router(demo_router, prefix="/demo")
+
     return app
 
 
